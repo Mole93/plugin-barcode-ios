@@ -24,11 +24,13 @@
         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
             <string>$CAMERA_USAGE_DESCRIPTION</string>
         </config-file>
-        <resource-file src="src/ios/scannerOverlay.xib"/>
-        <resource-file src="src/ios/CDVBarcodeScanner.bundle"/>
-        <header-file src="src/ios/zxing-all-in-one.h"/>
-        <source-file src="src/ios/CDVBarcodeScanner.mm" compiler-flags="-fno-objc-arc"/>
-        <source-file src="src/ios/zxing-all-in-one.cpp"/>
+        <resource-file src="src/ios/barcode.bundle"/>
+        <header-file src="src/ios/CDVBarcodeScanner.h"/>
+         <source-file src="src/ios/CDVBarcodeScanner.m"/>
+        <header-file src="src/ios/CDVBarcodeViewController.h"/>
+        <source-file src="src/ios/CDVBarcodeViewController.m"/>
+         <header-file src="src/ios/MTBBarcodeScanner.h"/>
+         <source-file src="src/ios/MTBBarcodeScanner.m"/>
         <framework src="libiconv.dylib"/>
         <framework src="AVFoundation.framework"/>
         <framework src="AssetsLibrary.framework"/>
