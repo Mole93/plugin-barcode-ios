@@ -1,0 +1,31 @@
+{
+  "name": "plugin-barcode-ios",
+  "version": "1.0.1",
+  "description": " You can use the BarcodeScanner plugin to scan different types of barcodes. IOS10 Compatible ",
+  "cordova": {
+    "id": "ios-barcode-plugin",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mole93/plugin-barcode-ios.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Donato Antonini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mole93/plugin-barcode-ios/issues"
+  },
+  "homepage": "https://github.com/Mole93/plugin-barcode-ios#readme"
+}
