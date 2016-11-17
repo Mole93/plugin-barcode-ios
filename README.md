@@ -9,19 +9,30 @@ This plugin fixed the memory leak present in the official plugin and requires le
 
 This library was born because the original library take a lot of memory and leave a lot of objects in the memory (memory leak), at moment to add this library you need to do all things manually but i think that in the next days I'll create the configuration to add this library by terminal.
 
-# Step 1 
+# Installation
+
+
+This requires phonegap 5.0+ ( current stable v3.0.0 )
+
+```
+cordova plugin add plugin-barcode-ios
+```
+
+It is also possible to install following the steps below
+
+## Step 1 
 
 - You have to add `quartzCore.framework` 
 <img width="1512" alt="adding-frameworks" src="https://cloud.githubusercontent.com/assets/11760456/20302434/309669b8-ab1f-11e6-8a80-6ec3be1527db.png">
 
 
-- Copy **flash_off.imageset** and **flash_on.imageset** into the folder **Images.xcassets** in general you can find this into Resoureces group item (your xcode project)
+- Copy **barcode.bundle** into the folder **Resoureces** in general you can find this into Resoureces group item (your xcode project)
 
 - Copy **www/barcodescanner.js** into the folder **www/plugins** if you want a clean folder you can create a subfolder that you can call **cordova-plugin-barcodescanner**
 
-- Copy the folder **cordova-plugin-barcodescanner** into your project, into this folder you can find all native code 
+- Copy the folder **src/ios** into your project, into this folder you can find all native code 
 
-# Step 2
+## Step 2
 
 - Open your **config.xml** file and add this code:
 ```xml
@@ -41,13 +52,21 @@ This library was born because the original library take a lot of memory and leav
 ```
 **be carful where you see file you have to put your path where you have you put _barcodescanner.js_ file into _www_ folder**
 
+# iOS 10 integration
+
 iOS 10 it's mandatory to add a NSCameraUsageDescription in the info.plist.
 
 NSCameraUsageDescription describes the reason that the app accesses the user’s camera. When the system prompts the user to allow access, this string is displayed as part of the dialog box.
 
-So you need to open your info.plist file and add `Privacy - Camera Usage Description` and as a value `To scan barcodes`
+To add this entry you can pass the following variable on plugin install.
 
-#Using the plugin
+```
+cordova plugin add phonegap-plugin-barcodescanner --variable CAMERA_USAGE_DESCRIPTION="To scan barcodes"
+```
+
+Or you need to open your info.plist file and add `Privacy - Camera Usage Description` and as a value `To scan barcodes`
+
+# Using the plugin
 
 The plugin creates the object `cordova/plugin/BarcodeScanner` with the method` scan(success, fail)`.
 The following barcode types are currently supported:
