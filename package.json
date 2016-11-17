@@ -1,6 +1,6 @@
 {
   "name": "plugin-barcode-ios",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": " You can use the BarcodeScanner plugin to scan different types of barcodes. IOS10 Compatible ",
   "cordova": {
     "id": "ios-barcode-plugin",
