@@ -77,7 +77,7 @@
                        ];
     
     flash = [[UIBarButtonItem alloc]
-             initWithImage:[UIImage imageNamed:@"flash_off"]
+             initWithImage:[UIImage imageNamed:@"barcode.bundle/flash_off.png"]
              style:UIBarButtonItemStylePlain
              target:self
              action:@selector(flashButtonPressed:)
@@ -201,10 +201,10 @@
 - (IBAction)flashButtonPressed:(id)sender {
     if (scanner.torchMode == MTBTorchModeOff || scanner.torchMode == MTBTorchModeAuto) {
         scanner.torchMode = MTBTorchModeOn;
-         [flash setImage:[UIImage imageNamed:@"flash_on"]];
+         [flash setImage:[UIImage imageNamed:@"barcode.bundle/flash_on.png"]];
     } else {
         scanner.torchMode = MTBTorchModeOff;
-         [flash setImage:[UIImage imageNamed:@"flash_off"]];
+         [flash setImage:[UIImage imageNamed:@"barcode.bundle/flash_off.png"]];
     }
 }
 
