@@ -162,18 +162,27 @@
     UIGraphicsBeginImageContext(CGSizeMake(RETICLE_SIZE, RETICLE_SIZE));
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-
-        UIColor* color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:RETICLE_ALPHA];
-        CGContextSetStrokeColorWithColor(context, color.CGColor);
-        CGContextSetLineWidth(context, RETICLE_WIDTH);
-        CGContextStrokeRect(context,
-                            CGRectMake(
-                                       RETICLE_OFFSET,
-                                       RETICLE_OFFSET,
-                                       RETICLE_SIZE-2*RETICLE_OFFSET,
-                                       RETICLE_SIZE-2*RETICLE_OFFSET
-                                       )
-                            );
+    UIColor* colorRedLine = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:RETICLE_ALPHA];
+    CGContextSetStrokeColorWithColor(context, colorRedLine.CGColor);
+    CGContextSetLineWidth(context, RETICLE_WIDTH);
+    CGContextBeginPath(context);
+    CGFloat lineOffset = RETICLE_OFFSET+(0.5*RETICLE_WIDTH);
+    CGContextMoveToPoint(context, lineOffset, RETICLE_SIZE/2);
+    CGContextAddLineToPoint(context, RETICLE_SIZE-lineOffset, 0.5*RETICLE_SIZE);
+    CGContextStrokePath(context);
+    
+    UIColor* color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:RETICLE_ALPHA];
+    CGContextSetStrokeColorWithColor(context, color.CGColor);
+    CGContextSetLineWidth(context, RETICLE_WIDTH);
+    CGContextStrokeRect(context,
+                        CGRectMake(
+                                   RETICLE_OFFSET,
+                                   RETICLE_OFFSET,
+                                   RETICLE_SIZE-2*RETICLE_OFFSET,
+                                   RETICLE_SIZE-2*RETICLE_OFFSET
+                                   )
+                        );
+    
     
     result = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
